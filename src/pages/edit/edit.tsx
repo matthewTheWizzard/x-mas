@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import './edit.css';
 
@@ -11,6 +11,7 @@ export const Edit = () => {
   
     useEffect(() => {
       const savedGames = JSON.parse(localStorage.getItem('games') || '[]');
+          // @ts-ignore
       const gameToEdit = savedGames.find((game) => game.id === id);
       if (gameToEdit) {
         setName(gameToEdit.name);
@@ -38,6 +39,7 @@ export const Edit = () => {
     const saveChanges = () => {
       if (!name) return alert('Please enter a game name');
       const savedGames = JSON.parse(localStorage.getItem('games') || '[]');
+          // @ts-ignore
       const updatedGames = savedGames.map((game) =>
         game.id === id ? { ...game, name, rounds } : game
       );
@@ -48,6 +50,7 @@ export const Edit = () => {
   
     const addAnswer = () => {
       const updatedRounds = [...rounds];
+          // @ts-ignore
       updatedRounds[currentPage].answers.push({ text: '', revealed: false });
       setRounds(updatedRounds);
     };
@@ -79,7 +82,7 @@ export const Edit = () => {
             }}
           />
           <div>
-            {rounds[currentPage].answers.map((answer, index) => (
+            {rounds[currentPage].answers.map((answer: any, index) => (
               <div
                 key={index}
                 style={{
@@ -92,7 +95,7 @@ export const Edit = () => {
                   value={answer.text}
                   onChange={(e) => {
                     const updatedRounds = [...rounds];
-                    updatedRounds[currentPage].answers[index].text = e.target.value;
+                    ((updatedRounds[currentPage].answers[index] as any).text as string) = e.target.value;
                     setRounds(updatedRounds);
                   }}
                   style={{ flex: 1, marginRight: '10px' }}

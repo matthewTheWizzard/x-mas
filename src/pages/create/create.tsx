@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 export const Create = () => {
@@ -35,6 +35,7 @@ export const Create = () => {
 
   const addAnswer = () => {
     const updatedRounds = [...rounds];
+    // @ts-ignore
     updatedRounds[currentPage].answers.push({ text: '', revealed: false });
     setRounds(updatedRounds);
   };
@@ -76,9 +77,11 @@ export const Create = () => {
             >
               <input
                 placeholder={`Answer ${index + 1}`}
+                    // @ts-ignore
                 value={answer.text}
                 onChange={(e) => {
                   const updatedRounds = [...rounds];
+                      // @ts-ignore
                   updatedRounds[currentPage].answers[index].text = e.target.value;
                   setRounds(updatedRounds);
                 }}

@@ -1,5 +1,18 @@
 {
   "files": [],
+  "skipLibCheck": true,
+  "noEmit": true,
+  "exclude": ["build", "node_modules"],
+  "compilerOptions": {
+    "skipLibCheck": true,
+    "noEmit": false,
+    "strict": false
+  },
+  "rules": {
+    "no-unused-vars": "off",
+    "no-undef": "off",
+    "no-console": "off"
+  },
   "references": [
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }

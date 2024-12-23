@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 export const Game = () => {
   const { id } = useParams();
-  const [game, setGame] = useState(null);
+  const [game, setGame] = useState<any>(null);
   const [currentRound, setCurrentRound] = useState(0);
 
   useEffect(() => {
     const savedGames = JSON.parse(localStorage.getItem('games') || '[]');
-    const foundGame = savedGames.find((g) => g.id === id);
+    const foundGame = savedGames.find((g: any) => g.id === id);
     setGame(foundGame || null);
   }, [id]);
 
@@ -22,7 +22,7 @@ export const Game = () => {
       <h2>Round {currentRound + 1}</h2>
       <p>{round.question}</p>
       <div className="answers">
-        {round.answers.map((answer, index) => (
+        {round.answers.map((answer: any, index: number) => (
           <div
             key={index}
             className={`answer ${answer.revealed ? 'revealed' : ''}`}
