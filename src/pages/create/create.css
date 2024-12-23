@@ -1,0 +1,119 @@
+.container {
+    width: 90%;
+    background-color: rgba(255, 255, 255, 0.2); /* Полупрозрачный фон */
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 24px;
+    color: #0da100;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  }
+  
+  h2 {
+    font-size: 20px;
+    color: #05a127;
+  }
+  
+  input {
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    margin: 10px 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: #ff4e50;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #f44336;
+  }
+  
+  button:disabled {
+    background-color: #aaa;
+    cursor: not-allowed;
+  }
+  
+  .answers {
+    margin-top: 20px;
+    text-align: left;
+  }
+  
+  .answer {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .answer input {
+    flex: 1;
+    padding: 8px;
+    font-size: 14px;
+    margin-right: 10px;
+  }
+  
+  .answer button {
+    padding: 5px 10px;
+    background-color: #3498db;
+  }
+  
+  .answer button:hover {
+    background-color: #2980b9;
+  }
+  
+  .pagination {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-top: 20px;
+  }
+  
+  .pagination button {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: #4caf50;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+  
+  .pagination button:hover {
+    transform: scale(1.1);
+  }
+  
+  .pagination button.active {
+    background-color: #f9d423;
+  }
+  
+  .remove-round {
+    background-color: #e74c3c;
+    margin-top: 20px;
+  }
+  
+  .remove-round:hover {
+    background-color: #c0392b;
+  }
+  
+  .save-game {
+    margin-top: 20px;
+    background-color: #2ecc71;
+  }
+  
+  .save-game:hover {
+    background-color: #27ae60;
+  }
+  
