@@ -9,7 +9,7 @@ import { Edit } from './pages/edit/edit';
 export const Navigation = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef(new Audio('/xmas.mp3')); // Создаём единственный экземпляр Audio
-  audioRef.current.volume = 0.25;
+  audioRef.current.volume = 0.15;
 
   const togglePlay = () => {
     const audio = audioRef.current;
