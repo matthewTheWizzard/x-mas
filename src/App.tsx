@@ -8,8 +8,12 @@ import { Edit } from './pages/edit/edit';
 
 export const Navigation = () => {
   const [isPlaying, setIsPlaying] = useState(false);
-  const audioRef = useRef(new Audio('/xmas.mp3')); // Создаём единственный экземпляр Audio
-  audioRef.current.volume = 0.10;
+  const [showVolumeControl, setShowVolumeControl] = useState(false);
+  const [volume, setVolume] = useState(0.1); // Initial volume
+  const audioRef = useRef(new Audio('/xmas.mp3'));
+
+  // Set initial volume
+  audioRef.current.volume = volume;
 
   const togglePlay = () => {
     const audio = audioRef.current;
@@ -22,26 +26,45 @@ export const Navigation = () => {
     setIsPlaying(!isPlaying);
   };
 
-  // Обрабатываем завершение воспроизведения
+  // Handle audio end
   audioRef.current.onended = () => {
-    setIsPlaying(false); // Сбрасываем состояние, когда музыка закончилась
+    setIsPlaying(false);
   };
 
-  // Обрабатываем загрузку аудио
-  audioRef.current.oncanplay = () => {
-    console.log('Audio ready to play!');
+  const handleVolumeChange = (event: any) => {
+    const newVolume = parseFloat(event.target.value);
+    setVolume(newVolume);
+    audioRef.current.volume = newVolume;
   };
 
   return (
     <nav className="navigation">
       <a href="/create">Create</a>
       <a href="/">Games</a>
-      <button onClick={togglePlay} className="play-button">
-        {isPlaying ? 'Pause' : 'Play'}
-      </button>
+      <div
+        className="play-button-container"
+        onMouseEnter={() => setShowVolumeControl(true)}
+        onMouseLeave={() => setShowVolumeControl(false)}
+      >
+        <button onClick={togglePlay} className="play-button">
+          {isPlaying ? 'Pause' : 'Play'}
+        </button>
+        {showVolumeControl && (
+          <input
+            type="range"
+            className="volume-slider"
+            min="0"
+            max="1"
+            step="0.01"
+            value={volume}
+            onChange={handleVolumeChange}
+          />
+        )}
+      </div>
     </nav>
   );
 };
+
 function App() {
   return (
     <Router>

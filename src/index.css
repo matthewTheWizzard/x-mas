@@ -19,6 +19,7 @@ body {
 .navigation {
     padding: 10px 0;
     position:absolute;
+    display: flex;
     top: 10px;
   }
   

@@ -52,7 +52,6 @@ button:disabled {
 }
 
 .play-button {
-  margin-left: 100px;
   padding: 15px 15px;
   background-color: #047508; /* Зелёный фон */
   color: white;
@@ -158,4 +157,19 @@ li a {
   text-decoration: none;
   color: white;
   font-weight: bold;
+}
+
+
+.play-button-container {
+  position: relative;
+  margin-left: 20px;
+}
+
+.volume-slider {
+  position: absolute;
+  top: -30px; /* Adjust position above the button */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px; /* Slider width */
+  cursor: pointer;
 }
